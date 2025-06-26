@@ -1,0 +1,5 @@
+export PATH="$HOME/bin:$PATH"
+export EDITOR="code"
+export BROWSER="google-chrome"
+export WORK="$HOME/Work"
+export REAMP="$HOME/Work/rei-auto-pilot"
