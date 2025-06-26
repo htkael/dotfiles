@@ -129,3 +129,38 @@ note() {
         echo "Note added to $(basename "$note_file")"
     fi
 }
+
+backup() {
+    local backup_dir="$HOME/Backups/$(date +%Y-%m-%d)"
+    mkdir -p "$backup_dir/"    
+
+    cp -r ~/dotfiles "$backup_dir/"
+    cp -r ~/Work "$backup_dir/" 2>/dev/null || echo "Work dir backup skipped"
+
+    echo "backup created in $backup_dir"
+}
+
+project() {
+    if [ -z "$1" ]; then
+        echo "Available projects:"
+        ls -1 "$WORK"
+        return
+    fi
+    
+    cd "$WORK/$1" || { echo "Project $1 not found"; return 1; }
+    
+    if [ -f "docker-compose.yml" ]; then
+        echo "Docker compose file found. Run 'devstart' to start environment."
+    fi
+}
+
+monitor() {
+    local cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
+    local mem_usage=$(free | grep Mem | awk '{printf "%.1f", $3/$2 * 100.0}')
+    
+    echo "CPU: ${cpu_usage}% | Memory: ${mem_usage}%"
+    
+    if (( $(echo "$cpu_usage > 80" | bc -l) )); then
+        notify-send "High CPU Usage" "CPU at ${cpu_usage}%"
+    fi
+}
