@@ -18,5 +18,4 @@ if [ -n "$BASH_VERSION" ]; then
 elif [ -n "$ZSH_VERSION" ]; then
     alias edit-env='$EDITOR ~/.zshrc'
     alias reload-env='source ~/.zshrc'
-fi
-alias vim='nvim .'
+fialias vim='nvim'

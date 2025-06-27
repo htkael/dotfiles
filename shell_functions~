@@ -54,7 +54,7 @@ devstart() {
     fi
 
     sleep 5
-    vim . &
+    code . &
     google-chrome http://127.0.0.1:5678 >/dev/null 2>&1 &
     telegram-desktop >/dev/null 2>&1 &
     echo "Development environment ready!"
@@ -123,7 +123,7 @@ note() {
     mkdir -p "$HOME/notes"
 
     if [ -z "$1" ]; then
-        vim "$note_file"
+        code "$note_file"
     else
         echo "$(date +%H:%M) - $*" >> "$note_file"
         echo "Note added to $(basename "$note_file")"
