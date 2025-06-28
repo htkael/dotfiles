@@ -16,10 +16,9 @@ gstat() {
 devstart() {
     echo "Starting development environment..."
     cd ~/Work/rei-auto-pilot || { echo "Project directory not found!"; return 1; }
-
+    
     if ! docker info >/dev/null 2>&1; then
         echo "Docker daemon not running. Starting Docker Desktop..."
-        
         systemctl --user start docker-desktop
         
         echo "Waiting for Docker daemon to start..."
@@ -28,7 +27,6 @@ devstart() {
         while ! docker info >/dev/null 2>&1; do
             if [ $count -ge $timeout ]; then
                 echo "❌ Timeout waiting for Docker daemon to start"
-                echo "Try manually running: systemctl --user start docker-desktop"
                 return 1
             fi
             sleep 2
@@ -37,24 +35,38 @@ devstart() {
         done
         echo " ✅ Docker daemon ready!"
     fi
-
+    
     echo "🚀 Starting containers..."
     docker compose up --build -d
-
     sleep 5
-
+    
     if [ -n "$TMUX" ]; then
-        tmux split-window -c "~/Work/rei-auto-pilot" \; \
-        send-keys "cd ~/Work/rei-auto-pilot && docker compose logs -f" Enter
+        # Work within the current tmux session
+        # Split current window vertically (left=vim, right=logs/cli)
+        tmux split-window -h
+        
+        # Split the right pane horizontally (top=logs, bottom=cli)
+        tmux split-window -v
+        
+        # Send commands to each pane
+        # Pane 0 (left) - vim
+        tmux send-keys -t 0 "cd ~/Work/rei-auto-pilot && nvim ." Enter
+        
+        # Pane 1 (top-right) - docker logs  
+        tmux send-keys -t 1 "cd ~/Work/rei-auto-pilot && docker compose logs -f" Enter
+        
+        # Pane 2 (bottom-right) - CLI
+        tmux send-keys -t 2 "cd ~/Work/rei-auto-pilot && pwd && echo 'CLI ready in rei-auto-pilot'" Enter
+        
+        # Select the vim pane
+        tmux select-pane -t 0
     else
-        gnome-terminal --tab --title="Docker Logs" -- bash -c "
-            cd ~/Work/rei-auto-pilot
-            docker compose logs -f
-        " &
+        echo "This function works best in tmux. Run 'tmux' first!"
+        nvim .
+        return
     fi
-
-    sleep 5
-    vim . &
+    
+    # Open browser and telegram
     google-chrome http://127.0.0.1:5678 >/dev/null 2>&1 &
     telegram-desktop >/dev/null 2>&1 &
     echo "Development environment ready!"
