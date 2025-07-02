@@ -1,0 +1,1 @@
+apt install alacritty neovim tmux htop ripgrep fd-find httpie jq tree shfmt awesome rofi feh picom dunst telegram-desktop timeshift build-essential git nodejs
