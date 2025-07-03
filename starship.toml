@@ -29,8 +29,3 @@ disabled = false
 format = '$time'
 time_format = "%l:%M %p"
 style = "dimmed white"
-
-[custom.temp]
-command = "sensors | grep 'Core 0' | awk '{print $3}' | sed 's/+//g'"
-when = "true"
-format = "$output" 
