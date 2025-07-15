@@ -1,0 +1,19 @@
+#!/bin/bash
+
+SECONDS_RUNNING=0
+
+cleanup() {
+  echo ""
+  echo "Script interrupted. Total time elapsed: $SECONDS_RUNNING seconds."
+  exit 0
+}
+
+trap cleanup SIGINT
+
+echo "Ticker start..."
+
+while true; do
+  echo "Time elapsed: $SECONDS_RUNNING seconds"
+  sleep 1
+  ((SECONDS_RUNNING++))
+done
