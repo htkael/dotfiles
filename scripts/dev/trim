@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd ~/Work/
+
+echo "Writing note..."
+
+echo "=== NEW API CALL ===" >>api_filters.md
+echo "" >>api_filters.md
+echo "CALL NAME: $1" >>api_filters.md
+echo "" >>api_filters.md
+for arg in "${@:2}"; do
+  echo "Prop needed: $arg" >>api_filters.md
+done
+echo "" >>api_filters.md
+
+echo "Note completed..."
