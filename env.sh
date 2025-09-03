@@ -12,6 +12,9 @@ export PATH="$HOME/scripts/dev:$PATH"
 export PATH="$HOME/scripts/utils:$PATH"
 export PATH="/snap/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/.local/opt/watchman/bin:$PATH"
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # ====================================================================
 # ENVIRONMENT VARIABLES
@@ -20,6 +23,7 @@ export EDITOR="nvim"
 export BROWSER="google-chrome"
 export WORK="$HOME/Work"
 export REAMP="$HOME/Work/rei-auto-pilot"
+export ANDROID_HOME=$HOME/Android/Sdk
 
 # ====================================================================
 # ALIASES
