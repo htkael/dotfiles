@@ -44,6 +44,7 @@ alias dup='docker compose up --build'
 alias dd='docker compose down'
 alias vim='nvim'
 alias sysupdate='sudo apt update && sudo apt upgrade -yy && flatpak update -yy'
+alias reap='bash $HOME/.local/env/reap.sh'
 
 # Shell-specific aliases
 if [ -n "$BASH_VERSION" ]; then
@@ -73,7 +74,7 @@ gstat() {
 }
 
 devstart() {
-  echo "Starting development environment..."
+  echo "Starting reamp... Get ready to work."
   cd ~/Work/rei-auto-pilot || {
     echo "Project directory not found!"
     return 1
