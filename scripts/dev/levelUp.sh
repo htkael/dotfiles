@@ -23,12 +23,12 @@ else
   echo "Creating session $SESSION_DEV..."
 
   tmux new-session -d -s $SESSION_DEV -n "playground"
-  tmux send-keys -t $SESSION_DEV:frontend "cd $ROOT_DIR/playground" C-m
-  tmux send-keys -t $SESSION_DEV:frontend "vim ." C-m
+  tmux send-keys -t $SESSION_DEV:playground "cd $ROOT_DIR/playground" C-m
+  tmux send-keys -t $SESSION_DEV:playground "vim ." C-m
 
   tmux new-window -n "factory" -t $SESSION_DEV:
-  tmux send-keys -t $SESSION_DEV:backend "cd $ROOT_DIR/factory/" C-m
-  tmux send-keys -t $SESSION_DEV:backend "vim ." C-m
+  tmux send-keys -t $SESSION_DEV:factory "cd $ROOT_DIR/factory/" C-m
+  tmux send-keys -t $SESSION_DEV:factory "vim ." C-m
 
   tmux new-window -n "term" -t $SESSION_DEV:
   tmux send-keys -t $SESSION_DEV:term "cd $ROOT_DIR" C-m
