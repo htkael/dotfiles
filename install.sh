@@ -94,6 +94,10 @@ echo "Installing node.js..."
 echo "$DATE Installing node.js..." >>./install.log
 nvm install --lts
 
+echo "Installing golang..."
+echo "$DATE Installing golang..." >>./install.log
+sudo apt install golang-go
+
 echo "Installing docker..."
 echo "$DATE Installing docker..." >>./install.log
 sudo apt install apt-transport-https software-properties-common

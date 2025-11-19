@@ -26,7 +26,7 @@ vim.keymap.set("n", "<C-l>", "<C-W><C-L>", { desc = "Move to split right" })
 vim.keymap.set("n", "<C-h>", "<C-W><C-H>", { desc = "Move to split left" })
 
 -- File explorer (netrw)
-vim.keymap.set("n", "<leader>pv", ":Ex<CR>", { desc = "Open netrw explorer" })
+vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>", { desc = "Open oil file explorer" })
 
 -- Buffer navigation shortcuts
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })

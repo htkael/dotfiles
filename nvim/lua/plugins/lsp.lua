@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        gopls = false, -- Disable gopls
         ts_ls = {
           settings = {
             typescript = {
@@ -27,7 +28,6 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(event)
           local opts = { buffer = event.buf }
-
           -- Add organize imports keymap
           vim.keymap.set("n", "<leader>oi", function()
             vim.lsp.buf.code_action({
@@ -37,7 +37,6 @@ return {
               },
             })
           end, vim.tbl_extend("force", opts, { desc = "Organize imports" }))
-
           -- Add workspace folder keymap
           vim.keymap.set(
             "n",
