@@ -5,11 +5,11 @@ EXPECTED_DIR="dotfiles"
 
 echo "Beginning installation of desired environment..."
 echo "$DATE Beginning installation of desired environment..." >>./install.log
+touch install.log
 
 if [[ "$EXPECTED_DIR" == "$CURRENT_DIR" ]]; then
   echo "Current working dir is correct. Continuing..."
   echo "$DATE Current working dir is correct. Continuing..." >>./install.log
-  touch install.log
 else
   echo "Error: Current directory is incorrect. Please navigate to dotfiles"
   echo "$DATE Error: Current directory is incorrect. Please navigate to dotfiles" >>./install.log
@@ -142,6 +142,9 @@ sudo apt install -y jq
 sudo apt install -y tree
 sudo apt install -y bat
 sudo apt install -y imagemagick
+sudo apt install -y bpytop
+sudo apt install -y cava
+sudo apt install -y flatpak
 
 echo "Installing LazyVim dependencies..."
 echo "$DATE Installing LazyVim dependencies..." >>./install.log
@@ -169,7 +172,6 @@ if [[ "$CONFIRMATION" != [yY] ]]; then
 else
   echo "Installing Telegram..."
   echo "$DATE Installing Telegram..." >>./install.log
-  sudo apt install flatpak
   flatpak install flathub org.telegram.desktop
 fi
 
