@@ -141,6 +141,7 @@ sudo apt install -y httpie
 sudo apt install -y jq
 sudo apt install -y tree
 sudo apt install -y bat
+sudo apt install -y imagemagick
 
 echo "Installing LazyVim dependencies..."
 echo "$DATE Installing LazyVim dependencies..." >>./install.log
