@@ -145,6 +145,7 @@ sudo apt install -y imagemagick
 sudo apt install -y bpytop
 sudo apt install -y cava
 sudo apt install -y flatpak
+sudo apt install -y yt-dlp
 
 echo "Installing LazyVim dependencies..."
 echo "$DATE Installing LazyVim dependencies..." >>./install.log
