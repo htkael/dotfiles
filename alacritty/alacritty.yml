@@ -3,6 +3,8 @@ window:
   padding:
     x: 10
     y: 10
+  decorations: none
+  fullscreen: true
 
 font:
   normal:
