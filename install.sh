@@ -27,7 +27,7 @@ sudo apt install build-essential curl wget git ca-certificates gnupg lsb-release
 
 echo "Making all required directories for structure..."
 echo "$DATE Making all required directories for structure..." >>./install.log
-mkdir -p ~/.local/bin ~/bin ~/scripts ~/Work ~/.config
+mkdir -p ~/.local/bin ~/bin ~/Work ~/.config
 
 echo "Installing zsh and making it default shell..."
 echo "$DATE Installing zsh..." >>./install.log
@@ -145,7 +145,8 @@ sudo apt install -y imagemagick
 sudo apt install -y bpytop
 sudo apt install -y cava
 sudo apt install -y flatpak
-sudo apt install -y yt-dlp
+sudo apt install -y mpv
+pip install -U yt-dlp --break-system-packages
 
 echo "Installing LazyVim dependencies..."
 echo "$DATE Installing LazyVim dependencies..." >>./install.log

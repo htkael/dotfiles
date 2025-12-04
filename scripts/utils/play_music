@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ROOT_DIR="$HOME/Music"
+
+echo "Available folders to play:"
+ls -1 "$ROOT_DIR"
+echo ""
+
+read -p "Enter which folder you would like to listen to: " folder
+
+mpv "$ROOT_DIR/$folder"

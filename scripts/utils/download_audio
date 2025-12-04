@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ROOT_DIR="$HOME/Music"
+
+read -p "Enter the url: " url
+
+read -p "Enter the desired folder within './Music' (new one will be created if it does not exist): " folder
+
+echo "Finding/Creating folder..."
+mkdir -p "$ROOT_DIR/$folder"
+
+echo "Downloading audio..."
+yt-dlp -x --audio-format mp3 --cookies-from-browser firefox -P "$ROOT_DIR/$folder" "$url"
+
+echo "Done!"
