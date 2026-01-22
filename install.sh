@@ -94,6 +94,10 @@ echo "Installing node.js..."
 echo "$DATE Installing node.js..." >>./install.log
 nvm install --lts
 
+echo "Installing java..."
+echo "$DATE Installing golang..." >>./install.log
+sudo apt-get install openjdk-11-jdk
+
 echo "Installing golang..."
 echo "$DATE Installing golang..." >>./install.log
 sudo apt install golang-go
