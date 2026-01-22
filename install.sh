@@ -96,7 +96,7 @@ nvm install --lts
 
 echo "Installing java..."
 echo "$DATE Installing golang..." >>./install.log
-sudo apt-get install openjdk-11-jdk
+sudo apt-get install openjdk-21-jdk
 
 echo "Installing golang..."
 echo "$DATE Installing golang..." >>./install.log
