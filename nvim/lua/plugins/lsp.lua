@@ -4,6 +4,7 @@ return {
     opts = {
       servers = {
         gopls = false, -- Disable gopls
+        jdtls = {},
         ts_ls = {
           settings = {
             typescript = {
