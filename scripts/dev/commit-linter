@@ -1,0 +1,2 @@
+#!/bin/bash
+java -jar ~/dotfiles/scripts/java/commit-linter.jar "$@"
