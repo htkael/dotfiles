@@ -4,6 +4,6 @@ COMMIT_MSG_FILE=$1
 
 MESSAGE=$(cat $COMMIT_MSG_FILE)
 
-commit-linter $MESSAGE
+commit-linter "$MESSAGE"
 
 exit $?
