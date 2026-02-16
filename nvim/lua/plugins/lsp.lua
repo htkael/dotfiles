@@ -22,6 +22,9 @@ return {
           },
         },
         bashls = {},
+        tailwindcss = {
+          cmd = { "tailwindcss-language-server", "--stdio", "--max-old-space-size=8192" },
+        },
       },
     },
     init = function()
