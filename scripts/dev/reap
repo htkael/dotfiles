@@ -11,7 +11,7 @@ else
   echo "Creating session $SESSION_DOCKER..."
   tmux new-session -d -s $SESSION_DOCKER -n "docker"
   tmux send-keys -t $SESSION_DOCKER:docker "cd $ROOT_DIR" C-m
-  tmux send-keys -t $SESSION_DOCKER:docker "docker compose -f ./docker-compose.dev.yaml up --build" C-m
+  tmux send-keys -t $SESSION_DOCKER:docker "docker compose -f ./docker-compose.dev.yaml up --build" C-mQ
   tmux new-window -n "term" -t $SESSION_DOCKER:
   tmux send-keys -t $SESSION_DOCKER:term "cd $ROOT_DIR" C-m
 fi
