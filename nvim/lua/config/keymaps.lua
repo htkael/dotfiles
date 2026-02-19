@@ -1,9 +1,4 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
--- Basic keys
-vim.keymap.set("n", "q", "<C-r>", { desc = "Redo (q instead of Ctrl-r)" })
+vim.keymap.set("n", "U", "<C-r>", { desc = "Redo (q instead of Ctrl-r)" })
 
 -- Search navigation (n always forward, N always backward)
 vim.keymap.set("n", "n", "v:searchforward ? 'n' : 'N'", { expr = true, desc = "Next search result" })
